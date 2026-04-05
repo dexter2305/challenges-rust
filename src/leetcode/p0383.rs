@@ -16,10 +16,10 @@ pub fn can_construct(ransom_note: String, magazine: String) -> bool {
         let x = match maybe_entry {
             None => return false,
             Some(counter) if *counter == 0 => return false,
-            Some(counter) => magazine_dict.entry(ch).and_modify(|c| *c = *c -1)
+            Some(counter) => magazine_dict.entry(ch).and_modify(|c| *c = *c - 1),
         };
     }
-    return true
+    return true;
 }
 
 #[cfg(test)]
@@ -29,7 +29,11 @@ mod test {
 
     #[test]
     fn can_construct() {
-        let tests = vec![("aa", "bb", false), ("aa", "ab", false), ("aa", "aab", true)];
+        let tests = vec![
+            ("aa", "bb", false),
+            ("aa", "ab", false),
+            ("aa", "aab", true),
+        ];
 
         for (ransome_note, magazine, exp) in tests {
             assert_eq!(
